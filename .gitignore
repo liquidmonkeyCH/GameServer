@@ -1,0 +1,11 @@
+*.pdb
+*.idb
+*.obj
+vs2015/GameServer/x64/Debug/GameServer.tlog/unsuccessfulbuild
+*.tlog
+*.log
+*.user
+*.db
+*.ilk
+*.exe
+vs2015/.vs/
