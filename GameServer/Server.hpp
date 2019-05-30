@@ -40,9 +40,6 @@ private:
 private:
 	std::string				m_kName;
 	param_list				m_kParamList;
-	bool					m_running;
-	std::mutex				m_mutex;
-	std::condition_variable	m_cv;
 };
 ////////////////////////////////////////////////////////////////////////////////
 }

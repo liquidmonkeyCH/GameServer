@@ -16,11 +16,11 @@ namespace Utility
 namespace net
 {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-class GameServer : public net::server_wrap<Gamesession, msg::planA::controler>
+class game_server : public net::server_wrap<game_session, msg::planA::controler>
 {
 public:
-	GameServer(void) = default;
-	~GameServer(void) = default;
+	game_server(void) = default;
+	~game_server(void) = default;
 public:
 	void on_start(void);
 	void on_stop(void);

@@ -1,0 +1,44 @@
+/**
+ * @file UniqueCode.hpp
+ * 唯一码生成器
+ * 
+ * @author Hourui (liquidmonkey)
+ **/
+
+#include "UniqueCode.hpp"
+
+namespace Utility
+{
+////////////////////////////////////////////////////////////////////////////////////////////////////
+CUniqueCode::CUniqueCode(uint16 uiKey):
+	m_uiKey(uiKey),
+	m_tmDate(0),
+	m_uiIndex(0)
+{
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+CUniqueCode::~CUniqueCode(void)
+{
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+sint64
+CUniqueCode::CreateCode(void)
+{
+	m_tmDate = m_tmDate?m_tmDate:time(NULL);
+	
+	sint64 siCode = m_tmDate;
+	siCode = siCode << 16;
+	siCode |= m_uiKey;
+	siCode = siCode << 16;
+	siCode |= m_uiIndex;
+	
+	if(++m_uiIndex > 0xFFFF)
+	{
+		m_uiIndex = 0;
+		++m_tmDate;
+	}
+		
+	return siCode;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+}

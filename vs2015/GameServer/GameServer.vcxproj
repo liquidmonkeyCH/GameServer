@@ -148,23 +148,44 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\GameServer\cgpUser.hpp" />
+    <ClInclude Include="..\..\GameServer\csCommonDefine.hpp" />
+    <ClInclude Include="..\..\GameServer\csCommonEnum.hpp" />
+    <ClInclude Include="..\..\GameServer\csCommonStruct.hpp" />
     <ClInclude Include="..\..\GameServer\GameServer.hpp" />
+    <ClInclude Include="..\..\GameServer\MemoryPool.hpp" />
+    <ClInclude Include="..\..\GameServer\MessageHandler_User.hpp" />
     <ClInclude Include="..\..\GameServer\net_game_server.hpp" />
     <ClInclude Include="..\..\GameServer\net_game_session.hpp" />
+    <ClInclude Include="..\..\GameServer\Platform.h" />
     <ClInclude Include="..\..\GameServer\Server.hpp" />
     <ClInclude Include="..\..\GameServer\Service.hpp" />
     <ClInclude Include="..\..\GameServer\ServiceException.hpp" />
     <ClInclude Include="..\..\GameServer\ServiceManager.hpp" />
     <ClInclude Include="..\..\GameServer\ServiceServer.hpp" />
+    <ClInclude Include="..\..\GameServer\ServiceUserManager.hpp" />
     <ClInclude Include="..\..\GameServer\Singleton.hpp" />
+    <ClInclude Include="..\..\GameServer\TypesDn.h" />
+    <ClInclude Include="..\..\GameServer\UniqueCode.hpp" />
+    <ClInclude Include="..\..\GameServer\User.hpp" />
+    <ClInclude Include="..\..\GameServer\UserBasicInfo.hpp" />
+    <ClInclude Include="..\..\GameServer\Utility.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GameServer\GameServer.cpp" />
     <ClCompile Include="..\..\GameServer\main.cpp" />
+    <ClCompile Include="..\..\GameServer\MessageHandler_User.cpp" />
     <ClCompile Include="..\..\GameServer\net_game_server.cpp" />
     <ClCompile Include="..\..\GameServer\net_game_session.cpp" />
     <ClCompile Include="..\..\GameServer\Server.cpp" />
     <ClCompile Include="..\..\GameServer\ServiceServer.cpp" />
+    <ClCompile Include="..\..\GameServer\ServiceUserManager.cpp" />
+    <ClCompile Include="..\..\GameServer\UniqueCode.cpp" />
+    <ClCompile Include="..\..\GameServer\User.cpp" />
+    <ClCompile Include="..\..\GameServer\UserBasicInfo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\GameServer\MemoryPool.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

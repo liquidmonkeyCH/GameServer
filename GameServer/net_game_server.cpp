@@ -5,6 +5,7 @@
 */
 
 #include "net_game_server.hpp"
+#include "MessageHandler_User.hpp"
 
 namespace Utility
 {
@@ -13,12 +14,15 @@ namespace net
 {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void
-GameServer::on_start(void)
+game_server::on_start(void)
 {
+	m_controler.attach(SRT::MS_CG_LOGIN::GetID(), SRT::CMessageHandlerCollection::CG_LOGIN_Handler);
+	m_controler.attach(SRT::MS_CG_TRANSMIT::GetID(), SRT::CMessageHandlerCollection::CG_TRANSMIT_Handler);
+	m_controler.attach(SRT::MS_CG_REQUEST_DISCONNECT::GetID(), SRT::CMessageHandlerCollection::CG_REQUEST_DISCONNECT_Handler);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void
-GameServer::on_stop(void)
+game_server::on_stop(void)
 {
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////

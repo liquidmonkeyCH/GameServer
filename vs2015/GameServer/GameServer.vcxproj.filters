@@ -5,14 +5,23 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Service">
-      <UniqueIdentifier>{37b3fd62-aae6-47b5-9583-02d26d47c649}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Server">
       <UniqueIdentifier>{e58478bc-1f56-4ff3-9342-dd81e3772870}</UniqueIdentifier>
     </Filter>
     <Filter Include="Server\net">
       <UniqueIdentifier>{01ddbeef-ed3e-4976-a41b-ab835ca100ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Server\Service">
+      <UniqueIdentifier>{e43f2718-6545-4965-a2a8-e9a24bcc3b0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Server\Database">
+      <UniqueIdentifier>{48e50859-65f5-4720-b621-0c527c67f1b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Server\Protocol">
+      <UniqueIdentifier>{35299cc1-df36-4d37-a42e-51457f619ae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Server\ProtocolHandler">
+      <UniqueIdentifier>{8ccb4d80-f3e9-4d31-b0df-730c70865aa9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +52,45 @@
     <ClInclude Include="..\..\GameServer\net_game_session.hpp">
       <Filter>Server\net</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\GameServer\ServiceUserManager.hpp">
+      <Filter>Server\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\User.hpp">
+      <Filter>Server\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\UserBasicInfo.hpp">
+      <Filter>Server\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\cgpUser.hpp">
+      <Filter>Server\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\csCommonDefine.hpp">
+      <Filter>Server\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\csCommonEnum.hpp">
+      <Filter>Server\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\csCommonStruct.hpp">
+      <Filter>Server\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\UniqueCode.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\TypesDn.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\Platform.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\MemoryPool.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\Utility.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServer\MessageHandler_User.hpp">
+      <Filter>Server\ProtocolHandler</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GameServer\Server.cpp">
@@ -61,5 +109,25 @@
     <ClCompile Include="..\..\GameServer\GameServer.cpp">
       <Filter>Server</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\GameServer\ServiceUserManager.cpp">
+      <Filter>Server\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameServer\User.cpp">
+      <Filter>Server\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameServer\UserBasicInfo.cpp">
+      <Filter>Server\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameServer\UniqueCode.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameServer\MessageHandler_User.cpp">
+      <Filter>Server\ProtocolHandler</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\GameServer\MemoryPool.inl">
+      <Filter>Core</Filter>
+    </None>
   </ItemGroup>
 </Project>

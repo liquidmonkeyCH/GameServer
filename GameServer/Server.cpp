@@ -7,6 +7,7 @@
 #include "Server.hpp"
 #include <iostream>
 #include <signal.h>
+#include "logger.hpp"
 
 namespace Utility
 {
@@ -17,16 +18,10 @@ namespace main
 bool 
 Server::Start(bool bDaemon, const char* szServerName, int nParam, char* pParams[])
 {
-	std::unique_lock<std::mutex> lock(m_mutex);
-	if (m_running)
-		return false;
-
 	if (bDaemon)
 		daemon();
 
 	setsignal();
-
-	m_running = true;
 	m_kName = szServerName;
 
 	for (int i = 0; i < nParam; ++i)
@@ -38,6 +33,7 @@ Server::Start(bool bDaemon, const char* szServerName, int nParam, char* pParams[
 void
 Server::Run(void)
 {
+	Clog::info("Server start!");
 #ifdef _WIN32
 	std::string str;
 	do {
@@ -47,21 +43,12 @@ Server::Run(void)
 	} while (true);
 	Stop();
 #endif // _WIN32	
-	std::unique_lock<std::mutex> lock(m_mutex);
-	m_cv.wait(lock);
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
 Server::Stop(void)
 {
-	std::lock_guard<std::mutex> lock(m_mutex);
-	if (!m_running)
-		return;
-
 	OnStop();
-
-	m_running = false;
-	m_cv.notify_all();
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

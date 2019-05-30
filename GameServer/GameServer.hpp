@@ -1,5 +1,5 @@
 /**
-* @file GameServer.hpp
+* @file game_server.hpp
 *
 * @author Hourui (liquidmonkey)
 */
@@ -29,7 +29,7 @@ private:
 	net::io_service_iocp		m_io_service;
 	task::dispatcher_balance	m_dispatch_service;
 
-	net::GameServer				m_kGameServer;
+	net::game_server			m_game_server;
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 }//namespace main

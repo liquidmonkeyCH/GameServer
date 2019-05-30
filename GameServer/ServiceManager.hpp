@@ -80,7 +80,7 @@ T* GetService(void)throw()
 	}
 	catch(ServiceManagerException& e)
 	{
-		CLog::error("%s(%s)",e.what(),T::ID());
+		Clog::error("%s(%s)",e.what(),T::ID());
 	}
 
 	return pkPointer;
@@ -96,7 +96,7 @@ HOOK_SERVICE(void)
 	}
 	catch (ServiceManagerException& e)
 	{
-		CLog::error("%s(%s)", e.what(), T::ID());
+		Clog::error("%s(%s)", e.what(), T::ID());
 		throw(e);
 	}
 }
@@ -111,7 +111,7 @@ DE_HOOK_SERVICE(void)
 	}
 	catch (ServiceManagerException& e)
 	{
-		CLog::error("%s(%s)", e.what(), T::ID());
+		Clog::error("%s(%s)", e.what(), T::ID());
 		throw(e);
 	}
 }
