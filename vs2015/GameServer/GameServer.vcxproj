@@ -168,7 +168,6 @@
     <ClInclude Include="..\..\GameServer\UniqueCode.hpp" />
     <ClInclude Include="..\..\GameServer\User.hpp" />
     <ClInclude Include="..\..\GameServer\UserBasicInfo.hpp" />
-    <ClInclude Include="..\..\GameServer\Utility.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GameServer\GameServer.cpp" />

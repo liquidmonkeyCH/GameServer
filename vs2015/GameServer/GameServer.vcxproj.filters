@@ -82,9 +82,6 @@
     <ClInclude Include="..\..\GameServer\MemoryPool.hpp">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GameServer\Utility.hpp">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\GameServer\MessageHandler_User.hpp">
       <Filter>Server\ProtocolHandler</Filter>
     </ClInclude>
