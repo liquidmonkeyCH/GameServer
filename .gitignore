@@ -9,3 +9,4 @@ vs2015/GameServer/x64/Debug/GameServer.tlog/unsuccessfulbuild
 *.ilk
 *.exe
 vs2015/.vs/
+*.opendb
