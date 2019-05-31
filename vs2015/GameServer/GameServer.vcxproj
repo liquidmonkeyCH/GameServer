@@ -162,7 +162,6 @@
     <ClInclude Include="..\..\GameServer\Service.hpp" />
     <ClInclude Include="..\..\GameServer\ServiceException.hpp" />
     <ClInclude Include="..\..\GameServer\ServiceManager.hpp" />
-    <ClInclude Include="..\..\GameServer\ServiceServer.hpp" />
     <ClInclude Include="..\..\GameServer\ServiceUserManager.hpp" />
     <ClInclude Include="..\..\GameServer\Singleton.hpp" />
     <ClInclude Include="..\..\GameServer\TypesDn.h" />
@@ -178,7 +177,6 @@
     <ClCompile Include="..\..\GameServer\net_game_server.cpp" />
     <ClCompile Include="..\..\GameServer\net_game_session.cpp" />
     <ClCompile Include="..\..\GameServer\Server.cpp" />
-    <ClCompile Include="..\..\GameServer\ServiceServer.cpp" />
     <ClCompile Include="..\..\GameServer\ServiceUserManager.cpp" />
     <ClCompile Include="..\..\GameServer\UniqueCode.cpp" />
     <ClCompile Include="..\..\GameServer\User.cpp" />

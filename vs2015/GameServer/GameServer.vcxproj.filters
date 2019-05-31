@@ -37,9 +37,6 @@
     <ClInclude Include="..\..\GameServer\ServiceManager.hpp">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GameServer\ServiceServer.hpp">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\GameServer\Singleton.hpp">
       <Filter>Core</Filter>
     </ClInclude>
@@ -94,9 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GameServer\Server.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\GameServer\ServiceServer.cpp">
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GameServer\main.cpp" />
