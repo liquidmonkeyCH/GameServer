@@ -9,6 +9,12 @@
 #include <iostream>
 #include <signal.h>
 #include "logger.hpp"
+#include <stdio.h>
+#include <stdlib.h>
+
+#ifndef _WIN32
+#include <unistd.h>
+#endif
 
 namespace Utility
 {
@@ -47,26 +53,8 @@ Server::Start(bool bDaemon, const char* szServerName, int nParam, char* pParams[
 void
 Server::Run(void)
 {
-	Clog::info("Server start!");
-#if 0
-	try {
-
-		std::string str;
-		do {
-			std::cin >> str;
-			if (str.compare("exit") == 0)
-				break;
-		} while (true);
-	}
-	catch (std::exception e)
-	{
-		Clog::info(e.what());
-		system("pause");
-	}
-	Stop();
-#endif // _WIN32	
+	Clog::info("Server start!");	
 	CSingleton<Server::controler>::GetInstance()->run();
-
 	OnStop();
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -104,9 +92,10 @@ Server::setsignal(void)
 #ifndef _WIN32
 	signal(SIGHUP, SIG_IGN);
 	signal(SIGPIPE, SIG_IGN);
-	sigaction act;
+	struct sigaction act;
 	sigemptyset(&act.sa_mask);
-	atc.sa_flags = SA_NODEFER | SA_ONSTACK | SA_RESETHAND;
+	act.sa_flags = SA_NODEFER | SA_ONSTACK | SA_RESETHAND;
+	act.sa_handler = on_signal;
 	sigaction(SIGTERM, &act, NULL);
 #else
 	signal(SIGINT, on_signal);

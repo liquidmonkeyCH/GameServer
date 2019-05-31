@@ -2,6 +2,7 @@
 #define __USER_BASIC_HPP__
 
 #include "csCommonStruct.hpp"
+
 //#include "User.hpp"
 
 namespace SRT
@@ -30,7 +31,7 @@ public:
 	sint64 GetCode(void) { return m_siCode; }
 	const char* GetName(void) { return m_szName; }
 private:		
-	void changeName(const char* szName){ memcpy(m_szName,szName,NICK_NAME_LEN);m_szName[NICK_NAME_LEN] = 0x0;  m_bUpdate = true;}
+	void changeName(const char* szName){ ::memcpy(m_szName,szName,NICK_NAME_LEN);m_szName[NICK_NAME_LEN] = 0x0;  m_bUpdate = true;}
 private:
 	bool	m_bUpdate;	
 	
