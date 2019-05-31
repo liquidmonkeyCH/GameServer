@@ -12,13 +12,14 @@ int main(int argc, char* argv[])
 	logger klogger(logger::log_level::debug);
 	Clog::active_logger(&klogger);
 
-	main::Server* server = CSingleton<main::GameServer>::GetInstance();
+	CSingleton<main::GameServer>* server = CSingleton<main::GameServer>::GetInstance();
 
 	if (!server->Start(true, "game_server",argc,argv))
 		return 0;
 
 	server->Run();
 
+	system("pause");
     return 0;
 }
 

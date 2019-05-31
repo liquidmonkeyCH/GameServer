@@ -20,14 +20,27 @@ namespace main
 ////////////////////////////////////////////////////////////////////////////////
 class Server
 {
+private:
+	class controler
+	{
+	public:
+		controler(void) = default;
+		~controler(void) = default;
+		void run(void);
+		void stop(void);
+	private:
+		std::mutex m_mutex;
+		std::condition_variable	m_cv;
+	};
 public:
 	Server(void) = default;
 	~Server(void) = default;
 	using param_list = std::vector<std::string>;
+	friend void on_signal(int n);
 public:
 	bool Start(bool bDaemon, const char* szServerName,int nParam,char* pParams[]);
 	void Run(void);
-	void Stop(void);
+protected:
 	size_t getParamCount(void);
 	const char* getParam(size_t n);
 	const char* getName(void);

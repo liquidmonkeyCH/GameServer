@@ -5,6 +5,7 @@
 **/
 
 #include "Server.hpp"
+#include "Singleton.hpp"
 #include <iostream>
 #include <signal.h>
 #include "logger.hpp"
@@ -14,6 +15,19 @@ namespace Utility
 ////////////////////////////////////////////////////////////////////////////////
 namespace main
 {
+////////////////////////////////////////////////////////////////////////////////
+void 
+Server::controler::run(void)
+{
+	std::unique_lock<std::mutex> lock(m_mutex);
+	m_cv.wait(lock);
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Server::controler::stop(void)
+{
+	m_cv.notify_all();
+}
 ////////////////////////////////////////////////////////////////////////////////
 bool 
 Server::Start(bool bDaemon, const char* szServerName, int nParam, char* pParams[])
@@ -34,20 +48,25 @@ void
 Server::Run(void)
 {
 	Clog::info("Server start!");
-#ifdef _WIN32
-	std::string str;
-	do {
-		std::cin >> str;
-		if (str.compare("exit") == 0)
-			break;
-	} while (true);
+#if 0
+	try {
+
+		std::string str;
+		do {
+			std::cin >> str;
+			if (str.compare("exit") == 0)
+				break;
+		} while (true);
+	}
+	catch (std::exception e)
+	{
+		Clog::info(e.what());
+		system("pause");
+	}
 	Stop();
 #endif // _WIN32	
-}
-////////////////////////////////////////////////////////////////////////////////
-void
-Server::Stop(void)
-{
+	CSingleton<Server::controler>::GetInstance()->run();
+
 	OnStop();
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -70,6 +89,15 @@ Server::daemon(void)
 #endif // !_WIN32
 }
 ////////////////////////////////////////////////////////////////////////////////
+void on_signal(int n)
+{
+	if (n == SIGINT)
+	{
+		CSingleton<Server::controler>::GetInstance()->stop();
+		return;
+	}
+}
+////////////////////////////////////////////////////////////////////////////////
 void
 Server::setsignal(void)
 {
@@ -80,6 +108,8 @@ Server::setsignal(void)
 	sigemptyset(&act.sa_mask);
 	atc.sa_flags = SA_NODEFER | SA_ONSTACK | SA_RESETHAND;
 	sigaction(SIGTERM, &act, NULL);
+#else
+	signal(SIGINT, on_signal);
 #endif // !_WIN32
 }
 ////////////////////////////////////////////////////////////////////////////////
