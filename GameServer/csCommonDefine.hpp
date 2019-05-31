@@ -9,7 +9,7 @@ namespace SRT
 {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 #define FUNCTION_LOG(__siId)	\
-	Clog::info("[%u][%lu] %s", __siId,::GetCurrentThreadId(),__FUNCTION__);
+	Clog::info("[%u][%lu] %s", __siId,std::this_thread::get_id(),__FUNCTION__);
 
 //#define SDO_LOG(__szFormat, ...)	 					g_pServer->getLog()->logLn(CLog::LL_1,__szFormat,##__VA_ARGS__);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
