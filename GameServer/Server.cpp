@@ -35,6 +35,13 @@ Server::controler::stop(void)
 	m_cv.notify_all();
 }
 ////////////////////////////////////////////////////////////////////////////////
+Server::controler*
+Server::get_controler(void)
+{
+	static controler m_controler;
+	return &m_controler;
+}
+////////////////////////////////////////////////////////////////////////////////
 bool 
 Server::Start(bool bDaemon, const char* szServerName, int nParam, char* pParams[])
 {
@@ -54,7 +61,7 @@ void
 Server::Run(void)
 {
 	Clog::info("Server start!");	
-	CSingleton<Server::controler>::GetInstance()->run();
+	get_controler()->run();
 	OnStop();
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -81,7 +88,7 @@ void on_signal(int n)
 {
 	if (n == SIGINT)
 	{
-		CSingleton<Server::controler>::GetInstance()->stop();
+		Server::get_controler()->stop();
 		return;
 	}
 }

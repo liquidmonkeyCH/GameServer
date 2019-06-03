@@ -50,6 +50,7 @@ protected:
 private:
 	void daemon(void);
 	void setsignal(void);
+	static controler* get_controler(void);
 private:
 	std::string				m_kName;
 	param_list				m_kParamList;

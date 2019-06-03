@@ -17,6 +17,8 @@ int main(int argc, char* argv[])
 	if (!server->Start(true, "game_server",argc,argv))
 		return 0;
 
+	Clog::debug("123");
+
 	server->Run();
 
 	system("pause");
