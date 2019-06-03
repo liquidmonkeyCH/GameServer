@@ -38,7 +38,7 @@ public:
 	using param_list = std::vector<std::string>;
 	friend void on_signal(int n);
 public:
-	bool Start(bool bDaemon, const char* szServerName,int nParam,char* pParams[]);
+	bool Start(const char* szServerName,int nParam,char* pParams[]);
 	void Run(void);
 protected:
 	size_t getParamCount(void);

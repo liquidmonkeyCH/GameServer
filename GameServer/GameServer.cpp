@@ -26,6 +26,9 @@ GameServer::OnStart(void)
 
 	HOOK_SERVICE<SRT::ServiceUserManager>();
 
+	for (size_t i = 0; i < getParamCount(); ++i)
+		Clog::info("params[%d]:%s", i, getParam(i));
+
 
 	Clog::info("Server Starting ...");
 

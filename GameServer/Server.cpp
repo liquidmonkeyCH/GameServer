@@ -43,16 +43,22 @@ Server::get_controler(void)
 }
 ////////////////////////////////////////////////////////////////////////////////
 bool 
-Server::Start(bool bDaemon, const char* szServerName, int nParam, char* pParams[])
+Server::Start(const char* szServerName, int nParam, char* pParams[])
 {
+	bool bDaemon = false;
+	for (int i = 0; i < nParam; ++i)
+	{
+		if (strcmp(pParams[i], "-d") == 0 || strcmp(pParams[i], "-daemon") == 0)
+			bDaemon = true;
+
+		m_kParamList.push_back(pParams[i]);
+	}
+
 	if (bDaemon)
 		daemon();
 
 	setsignal();
 	m_kName = szServerName;
-
-	for (int i = 0; i < nParam; ++i)
-		m_kParamList.push_back(pParams[i]);
 
 	return OnStart();
 }

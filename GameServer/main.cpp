@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 
 	CSingleton<main::GameServer>* server = CSingleton<main::GameServer>::GetInstance();
 
-	if (!server->Start(true, "game_server",argc,argv))
+	if (!server->Start("game_server",argc,argv))
 		return 0;
 
 	server->Run();
