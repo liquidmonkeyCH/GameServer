@@ -73,7 +73,7 @@ Server::daemon(void)
 	if (pid != 0)
 	{
 		// parent exit
-		exit(-1);
+		_exit(-1);
 	}
 	// create a new session
 	setsid();
@@ -86,7 +86,7 @@ Server::daemon(void)
 ////////////////////////////////////////////////////////////////////////////////
 void on_signal(int n)
 {
-	if (n == SIGINT)
+	if (n == SIGINT || n == SIGTERM)
 	{
 		Server::get_controler()->stop();
 		return;
@@ -103,9 +103,11 @@ Server::setsignal(void)
 	sigemptyset(&act.sa_mask);
 	act.sa_flags = SA_NODEFER | SA_ONSTACK | SA_RESETHAND;
 	act.sa_handler = on_signal;
+	sigaction(SIGINT, &act, NULL);
 	sigaction(SIGTERM, &act, NULL);
 #else
 	signal(SIGINT, on_signal);
+	signal(SIGTERM, on_signal);
 #endif // !_WIN32
 }
 ////////////////////////////////////////////////////////////////////////////////
