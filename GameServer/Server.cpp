@@ -66,7 +66,7 @@ Server::Start(const char* szServerName, int nParam, char* pParams[])
 void
 Server::Run(void)
 {
-	Clog::info("Server start!");	
+	Clog::info("%s start!", m_kName.c_str());
 	get_controler()->run();
 	OnStop();
 }

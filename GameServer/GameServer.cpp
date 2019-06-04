@@ -39,7 +39,6 @@ void
 GameServer::OnStop(void)
 {
 	m_game_server.stop();
-
 	m_io_service.stop();
 	m_dispatch_service.stop();
 }
